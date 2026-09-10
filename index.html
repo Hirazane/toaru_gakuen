@@ -101,7 +101,7 @@
 <body class="font-serif min-h-screen">
 
     <!-- ヘッダー -->
-    <header class="bg-otome-dark/90 backdrop-blur-sm border-b border-otome-primary/30 shadow-md sticky top-0 z-10 py-6 text-center">
+    <header class="bg-otome-dark/90 backdrop-blur-sm border-b border-otome-primary/30 shadow-md sticky top-0 z-40 py-6 text-center">
         <h1 class="text-3xl md:text-4xl font-bold tracking-widest deco-title">
             The certain school
         </h1>
@@ -111,7 +111,7 @@
     <!-- メインコンテンツ -->
     <main class="container mx-auto px-4 py-12 max-w-5xl">
         
-        <!-- 🌟 キャラクター紹介セクション -->
+        <!-- キャラクター紹介セクション -->
         <section class="mb-24">
             <div class="text-center mb-12">
                 <h2 class="text-2xl font-bold text-otome-text border-b-2 border-otome-gold inline-block pb-2 px-8">
@@ -126,7 +126,7 @@
             </div>
         </section>
 
-        <!-- 🌟 季節限定スチル（ギャラリー）セクション -->
+        <!-- 季節限定スチル（ギャラリー）セクション -->
         <section class="pt-16 border-t border-white/10">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold tracking-widest text-otome-gold mb-2 font-serif">
@@ -137,7 +137,6 @@
 
             <!-- 🎃 イベント1: ハロウィン2026 -->
             <div class="mb-20">
-                <!-- イベントタイトル（おしゃれなライン装飾付き） -->
                 <div class="flex items-center gap-4 mb-10">
                     <div class="h-px bg-gradient-to-r from-transparent via-otome-primary/50 to-otome-primary/50 flex-grow"></div>
                     <h3 class="text-xl font-serif text-otome-text font-bold px-4 tracking-wider flex items-center gap-2">
@@ -146,7 +145,6 @@
                     <div class="h-px bg-gradient-to-l from-transparent via-otome-primary/50 to-otome-primary/50 flex-grow"></div>
                 </div>
                 
-                <!-- 🌟 画像グリッド（半分のサイズになるように列数を倍に調整したわ） -->
                 <div class="columns-2 sm:columns-4 lg:columns-6 gap-3 space-y-3">
                     
                     <!-- 霞くん 画像1 -->
@@ -179,7 +177,6 @@
                 </div>
                 
                 <div class="columns-2 sm:columns-4 lg:columns-6 gap-3 space-y-3">
-                    <!-- 🌟 ここに「break-inside-avoid」と「inline-block w-full」を追加したわ -->
                     <div class="break-inside-avoid inline-block w-full text-center p-8 border border-dashed border-white/20 rounded-md text-white/30 text-sm">
                         Coming soon...
                     </div>
@@ -272,10 +269,10 @@
                 height: '179cm', weight: '67kg', blood: 'B型', job: '学園2年生',
                 color: 'bg-gradient-to-br from-pink-900 to-black',
                 themeColor: '#db2777',
-                portrait: 'images/kasumi_tachi.png',
+                portrait: 'images/kasumi_tachi.webp',
                 stills: [
-                    'images/still/kasumi_still_1.png',
-                    'images/still/kasumi_still_2.png'
+                    'images/still/kasumi_still_1.webp',
+                    'images/still/kasumi_still_2.webp'
                 ]
             },
             {
@@ -287,10 +284,10 @@
                 height: '174cm', weight: '71kg', blood: 'AB型', job: '社会科教師',
                 color: 'bg-gradient-to-br from-indigo-900 to-slate-900',
                 themeColor: '#4f46e5',
-                portrait: 'images/sensei_tachi.png',
+                portrait: 'images/sensei_tachi.webp',
                 stills: [
-                    'images/still/sensei_still_1.png',
-                    'images/still/sensei_still_2.png'
+                    'images/still/sensei_still_1.webp',
+                    'images/still/sensei_still_2.webp'
                 ]
             }
         ];
@@ -305,12 +302,15 @@
                 card.onclick = () => openModal(char);
 
                 card.innerHTML = `
-                    <div class="h-64 ${char.color} flex items-center justify-center relative overflow-hidden">
+                    <!-- 🌟 順番が混ざらないように z-10 を設定したわ -->
+                    <div class="h-64 ${char.color} flex items-center justify-center relative overflow-hidden z-10">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
                         
                         ${char.portrait ? `<img src="${char.portrait}" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500 z-0">` : `<i class="fas fa-user-tie text-7xl text-white/30 relative z-0 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500"></i>`}
                     </div>
-                    <div class="p-6 text-center relative border-t border-otome-primary/20">
+                    
+                    <!-- 🌟 網掛けの上に必ず来るように z-20 を設定したわ -->
+                    <div class="p-6 text-center relative z-20 border-t border-otome-primary/20">
                         <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded bg-[#1a1a1a] border border-otome-primary/50 shadow-sm flex items-center justify-center text-[10px]" style="color: ${char.themeColor}">
                             <i class="fas fa-wine-glass"></i>
                         </div>
