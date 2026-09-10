@@ -109,18 +109,85 @@
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="container mx-auto px-4 py-12 max-w-4xl">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl font-bold text-otome-text border-b-2 border-otome-gold inline-block pb-2 px-8">
-                Characters
-            </h2>
-            <p class="mt-4 text-otome-text/60 text-sm">使用キャラクター</p>
-        </div>
+    <main class="container mx-auto px-4 py-12 max-w-5xl">
+        
+        <!-- 🌟 キャラクター紹介セクション -->
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-otome-text border-b-2 border-otome-gold inline-block pb-2 px-8">
+                    Characters
+                </h2>
+                <p class="mt-4 text-otome-text/60 text-sm">使用キャラクター</p>
+            </div>
 
-        <!-- キャラクター一覧グリッド (JSで生成) -->
-        <div id="character-list" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- キャラクターカードがここに入ります -->
-        </div>
+            <!-- キャラクター一覧グリッド (JSで生成) -->
+            <div id="character-list" class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <!-- キャラクターカードがここに入ります -->
+            </div>
+        </section>
+
+        <!-- 🌟 季節限定スチル（ギャラリー）セクション -->
+        <section class="pt-16 border-t border-white/10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold tracking-widest text-otome-gold mb-2 font-serif">
+                    Memories
+                </h2>
+                <p class="text-sm text-otome-text/60 tracking-widest">〜季節の思い出〜</p>
+            </div>
+
+            <!-- 🎃 イベント1: ハロウィン2026 -->
+            <div class="mb-20">
+                <!-- イベントタイトル（おしゃれなライン装飾付き） -->
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="h-px bg-gradient-to-r from-transparent via-otome-primary/50 to-otome-primary/50 flex-grow"></div>
+                    <h3 class="text-xl font-serif text-otome-text font-bold px-4 tracking-wider flex items-center gap-2">
+                        <i class="fas fa-moon text-otome-gold"></i> ハロウィン2026
+                    </h3>
+                    <div class="h-px bg-gradient-to-l from-transparent via-otome-primary/50 to-otome-primary/50 flex-grow"></div>
+                </div>
+                
+                <!-- 🌟 画像グリッド（半分のサイズになるように列数を倍に調整したわ） -->
+                <div class="columns-2 sm:columns-4 lg:columns-6 gap-3 space-y-3">
+                    
+                    <!-- 霞くん 画像1 -->
+                    <div class="break-inside-avoid rounded-md overflow-hidden shadow-md border border-white/10 group relative cursor-pointer" onclick="openLightbox('images/still/26halloween/2026halloween_kasumi1.webp')">
+                        <img src="images/still/26halloween/2026halloween_kasumi1.webp" alt="ハロウィン スチル1" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white/0 group-hover:text-white/70 text-2xl transition-colors duration-300"></i>
+                        </div>
+                    </div>
+
+                    <!-- 霞くん 画像2 -->
+                    <div class="break-inside-avoid rounded-md overflow-hidden shadow-md border border-white/10 group relative cursor-pointer" onclick="openLightbox('images/still/26halloween/2026halloween_kasumi2.webp')">
+                        <img src="images/still/26halloween/2026halloween_kasumi2.webp" alt="ハロウィン スチル2" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white/0 group-hover:text-white/70 text-2xl transition-colors duration-300"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 🎄 イベント2: クリスマス2026 -->
+            <div class="mb-20">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="h-px bg-gradient-to-r from-transparent via-otome-primary/50 to-otome-primary/50 flex-grow"></div>
+                    <h3 class="text-xl font-serif text-otome-text font-bold px-4 tracking-wider flex items-center gap-2">
+                        <i class="fas fa-snowflake text-otome-gold"></i> クリスマス2026 (予定)
+                    </h3>
+                    <div class="h-px bg-gradient-to-l from-transparent via-otome-primary/50 to-otome-primary/50 flex-grow"></div>
+                </div>
+                
+                <div class="columns-2 sm:columns-4 lg:columns-6 gap-3 space-y-3">
+                    <!-- 🌟 ここに「break-inside-avoid」と「inline-block w-full」を追加したわ -->
+                    <div class="break-inside-avoid inline-block w-full text-center p-8 border border-dashed border-white/20 rounded-md text-white/30 text-sm">
+                        Coming soon...
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
     <!-- フッター -->
@@ -142,31 +209,22 @@
 
             <!-- 左側：立ち絵エリア -->
             <div id="modal-img-area" class="w-full md:w-2/5 h-64 md:h-auto flex items-center justify-center relative overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
-                
-                <!-- 🌟ここが立ち絵の画像タグよ -->
                 <img id="modal-portrait" src="" alt="立ち絵" class="absolute inset-0 w-full h-full object-cover object-top z-10 hidden">
-                
-                <!-- 画像がない場合のシルエットアイコン -->
                 <i id="modal-icon-placeholder" class="fas fa-user-tie text-9xl text-white/20 drop-shadow-lg relative z-0"></i>
-                
-                <!-- 背景の暗いオーバーレイ -->
                 <div class="absolute inset-0 bg-black/40 mix-blend-overlay z-0"></div>
             </div>
 
             <!-- 右側：詳細情報エリア -->
             <div class="w-full md:w-3/5 p-8 flex flex-col">
-                <!-- 名前とタイプ -->
                 <div class="mb-6 border-b border-otome-primary/30 pb-4 relative">
                     <span id="modal-type" class="text-xs font-bold px-3 py-1 rounded border border-otome-primary text-otome-gold mb-3 inline-block"></span>
                     <h3 id="modal-name" class="text-3xl font-bold text-otome-text mb-2"></h3>
                 </div>
                 
-                <!-- セリフ -->
                 <div class="mb-6">
                     <p id="modal-catchphrase" class="text-lg italic text-otome-text/90 font-medium leading-relaxed bg-black/40 p-4 rounded-md border-l-2 border-otome-gold shadow-inner"></p>
                 </div>
 
-                <!-- プロフィールデータ -->
                 <div class="mb-6 bg-black/30 p-4 rounded-md border border-white/5">
                     <div class="grid grid-cols-2 gap-4 text-sm">
                         <div><span class="text-otome-gold/80 font-bold">Height:</span> <span id="modal-height"></span></div>
@@ -176,12 +234,10 @@
                     </div>
                 </div>
 
-                <!-- 紹介文 -->
                 <div class="space-y-4 text-otome-text/80 leading-relaxed flex-grow">
                     <p id="modal-desc" class="text-sm md:text-base"></p>
                 </div>
 
-                <!-- イベントスチルエリア -->
                 <div class="mt-8 border-t border-white/10 pt-4">
                     <h4 class="text-sm font-bold text-otome-gold/80 mb-3 flex items-center gap-2">
                         <i class="fas fa-image"></i> Event Stills
@@ -216,7 +272,6 @@
                 height: '179cm', weight: '67kg', blood: 'B型', job: '学園2年生',
                 color: 'bg-gradient-to-br from-pink-900 to-black',
                 themeColor: '#db2777',
-                // 🌟 ここに立ち絵画像のURLを入れる
                 portrait: 'images/kasumi_tachi.png',
                 stills: [
                     'images/still/kasumi_still_1.png',
@@ -232,7 +287,6 @@
                 height: '174cm', weight: '71kg', blood: 'AB型', job: '社会科教師',
                 color: 'bg-gradient-to-br from-indigo-900 to-slate-900',
                 themeColor: '#4f46e5',
-                // 🌟 ここに立ち絵画像のURLを入れるわ
                 portrait: 'images/sensei_tachi.png',
                 stills: [
                     'images/still/sensei_still_1.png',
@@ -254,7 +308,6 @@
                     <div class="h-64 ${char.color} flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
                         
-                        <!-- 立ち絵がある場合は一覧にもうっすら表示 -->
                         ${char.portrait ? `<img src="${char.portrait}" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500 z-0">` : `<i class="fas fa-user-tie text-7xl text-white/30 relative z-0 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500"></i>`}
                     </div>
                     <div class="p-6 text-center relative border-t border-otome-primary/20">
@@ -274,7 +327,6 @@
             const modal = document.getElementById('char-modal');
             const content = document.getElementById('modal-content');
             
-            // テキストデータのセット
             document.getElementById('modal-name').textContent = char.name;
             document.getElementById('modal-type').textContent = char.type;
             document.getElementById('modal-catchphrase').textContent = char.catchphrase;
@@ -284,7 +336,6 @@
             document.getElementById('modal-blood').textContent = char.blood;
             document.getElementById('modal-job').textContent = char.job;
             
-            // 🌟 立ち絵画像のセット
             const portraitImg = document.getElementById('modal-portrait');
             const iconPlaceholder = document.getElementById('modal-icon-placeholder');
             
@@ -297,7 +348,6 @@
                 iconPlaceholder.classList.remove('hidden');
             }
 
-            // スチル画像の生成
             const stillsContainer = document.getElementById('modal-stills');
             stillsContainer.innerHTML = '';
             if (char.stills && char.stills.length > 0) {
@@ -313,40 +363,32 @@
                 stillsContainer.innerHTML = '<p class="text-xs text-white/30">スチル画像はまだありません</p>';
             }
             
-            // 画像エリアの背景色を変更
             const imgArea = document.getElementById('modal-img-area');
             imgArea.className = `w-full md:w-2/5 h-64 md:h-auto flex items-center justify-center relative overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none ${char.color}`;
 
-            // 表示処理
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
-            // アニメーション用
             setTimeout(() => {
                 content.classList.add('modal-enter-active');
             }, 10);
             
-            // スクロール固定
             document.body.style.overflow = 'hidden';
         }
 
-        // モーダルを閉じる処理
         function closeModal() {
             const modal = document.getElementById('char-modal');
             const content = document.getElementById('modal-content');
             
-            // アニメーション用
             content.classList.remove('modal-enter-active');
             
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-                // スクロール固定解除
                 document.body.style.overflow = '';
-            }, 400); // transition時間と合わせる
+            }, 400);
         }
 
-        // ライトボックスを開く処理
         function openLightbox(imgUrl) {
             const lightbox = document.getElementById('lightbox-modal');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -356,7 +398,6 @@
             lightbox.classList.remove('hidden');
             lightbox.classList.add('flex');
             
-            // アニメーション
             setTimeout(() => {
                 lightbox.classList.remove('opacity-0');
                 lightboxImg.classList.remove('scale-95');
@@ -364,12 +405,10 @@
             }, 10);
         }
 
-        // ライトボックスを閉じる処理
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox-modal');
             const lightboxImg = document.getElementById('lightbox-img');
             
-            // アニメーション
             lightbox.classList.add('opacity-0');
             lightboxImg.classList.remove('scale-100');
             lightboxImg.classList.add('scale-95');
@@ -377,7 +416,7 @@
             setTimeout(() => {
                 lightbox.classList.add('hidden');
                 lightbox.classList.remove('flex');
-                lightboxImg.src = ''; // ソースをクリア
+                lightboxImg.src = '';
             }, 300);
         }
     </script>
