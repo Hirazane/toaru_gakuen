@@ -59,27 +59,6 @@
         }
         .deco-title::before { left: 0; }
         .deco-title::after { right: 0; }
-
-        /* キャラクターカードのホバーエフェクト */
-        .char-card {
-            transition: all 0.4s ease;
-            background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-        }
-        .char-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(204, 163, 94, 0.3);
-        }
-
-        /* モーダルのフェードイン */
-        .modal-enter {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .modal-enter-active {
-            opacity: 1;
-            transform: scale(1);
-        }
         
         /* スクロールバーのカスタマイズ */
         ::-webkit-scrollbar {
@@ -111,19 +90,60 @@
     <!-- メインコンテンツ -->
     <main class="container mx-auto px-4 py-12 max-w-5xl">
         
-        <!-- キャラクター紹介セクション -->
+        <!-- 🌟 キャラクター詳細セクション（最初から表示） -->
         <section class="mb-24">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-bold text-otome-text border-b-2 border-otome-gold inline-block pb-2 px-8">
-                    Characters
-                </h2>
-                <p class="mt-4 text-otome-text/60 text-sm">使用キャラクター</p>
+            
+            <div class="relative bg-[#1a1a1a] w-full max-w-5xl mx-auto rounded-xl shadow-2xl border border-otome-primary/50 flex flex-col md:flex-row">
+                
+                <!-- 左側：立ち絵エリア -->
+                <div class="w-full md:w-2/5 h-96 md:h-auto min-h-[500px] flex items-center justify-center relative overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none bg-gradient-to-br from-pink-900 to-black">
+                    <!-- 立ち絵画像 -->
+                    <img src="images/kasumi_tachi.webp" alt="桃瀬 霞 立ち絵" class="absolute inset-0 w-full h-full object-cover object-top z-10">
+                    <div class="absolute inset-0 bg-black/40 mix-blend-overlay z-0"></div>
+                </div>
+
+                <!-- 右側：詳細情報エリア -->
+                <div class="w-full md:w-3/5 p-8 flex flex-col">
+                    <div class="mb-6 border-b border-otome-primary/30 pb-4 relative">
+                        <span class="text-xs font-bold px-3 py-1 rounded border border-otome-primary text-otome-gold mb-3 inline-block">学園生・２年</span>
+                        <h3 class="text-3xl font-bold text-otome-text mb-2">桃瀬 霞 <span class="text-xl text-otome-text/60 font-normal ml-2">(Kasumi Momose)</span></h3>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="text-lg italic text-otome-text/90 font-medium leading-relaxed bg-black/40 p-4 rounded-md border-l-2 border-otome-gold shadow-inner">
+                            「……こんな夜更けに一人で出歩くなんて、悪い子だね？」
+                        </p>
+                    </div>
+
+                    <div class="mb-6 bg-black/30 p-4 rounded-md border border-white/5">
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div><span class="text-otome-gold/80 font-bold">Height:</span> 179cm</div>
+                            <div><span class="text-otome-gold/80 font-bold">Weight:</span> 67kg</div>
+                            <div><span class="text-otome-gold/80 font-bold">Blood:</span> B型</div>
+                            <div><span class="text-otome-gold/80 font-bold">Grade/Job:</span> 学園2年生</div>
+                        </div>
+                    </div>
+
+                    <!-- 紹介文のテキスト -->
+                    <div class="space-y-4 text-otome-text/80 leading-relaxed flex-grow text-sm md:text-base">
+                        <p>11月5日生まれ。金色癖っ毛ハイポニーテール。ピンク色のインナーカラー。全身脱毛済み。</p>
+                        <p>静かに書と向き合うのも好きなのだが、部内で一番の体格であり、そのせいで超大筆を使ったパフォーマンスを担当することになる。墨を吸えば20kgを超える筆を扱うために筋トレを行い、また派手な髪型も舞うようなパフォーマンスに見目麗しいと考えたからである。</p>
+                        <p>……と、言うように割と芯は真面目なのだが、照れ隠しとして軽薄適当なキャラクターを演じている。また、女の子と見れば積極的に仲良くなりに行きたいと行動する、欲に忠実な男でもある。</p>
+                    </div>
+
+                    <!-- スチルプレビュー（不要なら消しても大丈夫よ） -->
+                    <div class="mt-8 border-t border-white/10 pt-4">
+                        <h4 class="text-sm font-bold text-otome-gold/80 mb-3 flex items-center gap-2">
+                            <i class="fas fa-image"></i> Event Stills
+                        </h4>
+                        <div class="flex gap-4 overflow-x-auto pb-2">
+                            <img src="images/still/kasumi_still_1.webp" alt="Event Still" class="h-24 md:h-32 w-auto object-cover rounded-md cursor-pointer border border-white/20 hover:border-otome-gold hover:opacity-80 transition-all shadow-md flex-shrink-0" onclick="openLightbox('images/still/kasumi_still_1.webp')">
+                            <img src="images/still/kasumi_still_2.webp" alt="Event Still" class="h-24 md:h-32 w-auto object-cover rounded-md cursor-pointer border border-white/20 hover:border-otome-gold hover:opacity-80 transition-all shadow-md flex-shrink-0" onclick="openLightbox('images/still/kasumi_still_2.webp')">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- キャラクター一覧グリッド (JSで生成) -->
-            <div id="character-list" class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-                <!-- キャラクターカードがここに入ります -->
-            </div>
         </section>
 
         <!-- 季節限定スチル（ギャラリー）セクション -->
@@ -147,7 +167,6 @@
                 
                 <div class="columns-2 sm:columns-4 lg:columns-6 gap-3 space-y-3">
                     
-                    <!-- 霞くん 画像1 -->
                     <div class="break-inside-avoid rounded-md overflow-hidden shadow-md border border-white/10 group relative cursor-pointer" onclick="openLightbox('images/still/26halloween/2026halloween_kasumi1.webp')">
                         <img src="images/still/26halloween/2026halloween_kasumi1.webp" alt="ハロウィン スチル1" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
@@ -155,17 +174,8 @@
                         </div>
                     </div>
 
-                    <!-- 霞くん 画像2 -->
                     <div class="break-inside-avoid rounded-md overflow-hidden shadow-md border border-white/10 group relative cursor-pointer" onclick="openLightbox('images/still/26halloween/2026halloween_kasumi2.webp')">
                         <img src="images/still/26halloween/2026halloween_kasumi2.webp" alt="ハロウィン スチル2" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                            <i class="fas fa-search-plus text-white/0 group-hover:text-white/70 text-2xl transition-colors duration-300"></i>
-                        </div>
-                    </div>
-
-                    <!-- 霞くん 画像3 -->
-                    <div class="break-inside-avoid rounded-md overflow-hidden shadow-md border border-white/10 group relative cursor-pointer" onclick="openLightbox('images/still/26halloween/2026halloween_kasumi3.webp')">
-                        <img src="images/still/26halloween/2026halloween_kasumi3.webp" alt="ハロウィン スチル3" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                             <i class="fas fa-search-plus text-white/0 group-hover:text-white/70 text-2xl transition-colors duration-300"></i>
                         </div>
@@ -200,62 +210,7 @@
         &copy; 2026 Momose Kasumi project. 
     </footer>
 
-    <!-- キャラクター詳細モーダル -->
-    <div id="char-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6">
-        <!-- 背景のオーバーレイ -->
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
-        
-        <!-- モーダル本体 -->
-        <div id="modal-content" class="relative bg-[#1a1a1a] w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl border border-otome-primary/50 flex flex-col md:flex-row modal-enter">
-            <!-- 閉じるボタン -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-otome-text hover:text-otome-gold hover:bg-black/80 transition-colors">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-
-            <!-- 左側：立ち絵エリア -->
-            <div id="modal-img-area" class="w-full md:w-2/5 h-64 md:h-auto flex items-center justify-center relative overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
-                <img id="modal-portrait" src="" alt="立ち絵" class="absolute inset-0 w-full h-full object-cover object-top z-10 hidden">
-                <i id="modal-icon-placeholder" class="fas fa-user-tie text-9xl text-white/20 drop-shadow-lg relative z-0"></i>
-                <div class="absolute inset-0 bg-black/40 mix-blend-overlay z-0"></div>
-            </div>
-
-            <!-- 右側：詳細情報エリア -->
-            <div class="w-full md:w-3/5 p-8 flex flex-col">
-                <div class="mb-6 border-b border-otome-primary/30 pb-4 relative">
-                    <span id="modal-type" class="text-xs font-bold px-3 py-1 rounded border border-otome-primary text-otome-gold mb-3 inline-block"></span>
-                    <h3 id="modal-name" class="text-3xl font-bold text-otome-text mb-2"></h3>
-                </div>
-                
-                <div class="mb-6">
-                    <p id="modal-catchphrase" class="text-lg italic text-otome-text/90 font-medium leading-relaxed bg-black/40 p-4 rounded-md border-l-2 border-otome-gold shadow-inner"></p>
-                </div>
-
-                <div class="mb-6 bg-black/30 p-4 rounded-md border border-white/5">
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div><span class="text-otome-gold/80 font-bold">Height:</span> <span id="modal-height"></span></div>
-                        <div><span class="text-otome-gold/80 font-bold">Weight:</span> <span id="modal-weight"></span></div>
-                        <div><span class="text-otome-gold/80 font-bold">Blood:</span> <span id="modal-blood"></span></div>
-                        <div><span class="text-otome-gold/80 font-bold">Grade/Job:</span> <span id="modal-job"></span></div>
-                    </div>
-                </div>
-
-                <div class="space-y-4 text-otome-text/80 leading-relaxed flex-grow">
-                    <p id="modal-desc" class="text-sm md:text-base"></p>
-                </div>
-
-                <div class="mt-8 border-t border-white/10 pt-4">
-                    <h4 class="text-sm font-bold text-otome-gold/80 mb-3 flex items-center gap-2">
-                        <i class="fas fa-image"></i> Event Stills
-                    </h4>
-                    <div id="modal-stills" class="flex gap-4 overflow-x-auto pb-2">
-                        <!-- スチル画像がここに入ります -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 画像拡大用（ライトボックス）モーダル -->
+    <!-- 🌟 画像拡大用（ライトボックス）の仕掛けだけは残してあるわ -->
     <div id="lightbox-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0">
         <div class="absolute inset-0 bg-black/95 backdrop-blur-md" onclick="closeLightbox()"></div>
         <button onclick="closeLightbox()" class="absolute top-4 right-4 md:top-8 md:right-8 z-10 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/20 transition-colors">
@@ -264,139 +219,8 @@
         <img id="lightbox-img" src="" alt="Event Still" class="relative z-10 max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl transform scale-95 transition-transform duration-300">
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript (画像を拡大する処理だけになったわ) -->
     <script>
-        // キャラクターデータ
-        const characters = [
-            {
-                id: 'kasumi',
-                name: '桃瀬 霞 (Kasumi Momose)',
-                type: '学園生・２年',
-                catchphrase: '「……こんな夜更けに一人で出歩くなんて、悪い子だね？」',
-                desc: '11月5日生まれ。金色癖っ毛ハイポニーテール。ピンク色のインナーカラー。全身脱毛済み。静かに書と向き合うのも好きなのだが、部内で一番の体格であり、そのせいで超大筆を使ったパフォーマンスを担当することになる。墨を吸えば20kgを超える筆を扱うために筋トレを行い、また派手な髪型も舞うようなパフォーマンスに見目麗しいと考えたからである。……と、言うように割と芯は真面目なのだが、照れ隠しとして軽薄適当なキャラクターを演じている。また、女の子と見れば積極的に仲良くなりに行きたいと行動する、欲に忠実な男でもある。',
-                height: '179cm', weight: '67kg', blood: 'B型', job: '学園2年生',
-                color: 'bg-gradient-to-br from-pink-900 to-black',
-                themeColor: '#db2777',
-                portrait: 'images/kasumi_tachi.webp',
-                stills: [
-                    'images/still/kasumi_still_1.webp',
-                    'images/still/kasumi_still_2.webp'
-                ]
-            },
-            {
-                id: 'coming soon',
-                name: 'coming soon',
-                type: '眉間に皺よりティーチャー',
-                catchphrase: '「ここはあまりテストには出ないが……古代ローマ帝国の建国にエトルリア人の影響があるのを知っておくのは重要だ」',
-                desc: 'coming soon',
-                height: '174cm', weight: '71kg', blood: 'AB型', job: '社会科教師',
-                color: 'bg-gradient-to-br from-indigo-900 to-slate-900',
-                themeColor: '#4f46e5',
-                portrait: 'images/sensei_tachi.webp',
-                stills: [
-                    'images/still/sensei_still_1.webp',
-                    'images/still/sensei_still_2.webp'
-                ]
-            }
-        ];
-
-        // ページ読み込み時にキャラクター一覧を生成
-        document.addEventListener('DOMContentLoaded', () => {
-            const listContainer = document.getElementById('character-list');
-            
-            characters.forEach(char => {
-                const card = document.createElement('div');
-                card.className = 'char-card rounded-xl overflow-hidden border border-otome-primary/30 cursor-pointer group relative shadow-lg';
-                card.onclick = () => openModal(char);
-
-                card.innerHTML = `
-                    <!-- 🌟 順番が混ざらないように z-10 を設定したわ -->
-                    <div class="h-64 ${char.color} flex items-center justify-center relative overflow-hidden z-10">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
-                        
-                        ${char.portrait ? `<img src="${char.portrait}" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500 z-0">` : `<i class="fas fa-user-tie text-7xl text-white/30 relative z-0 group-hover:scale-110 group-hover:text-white/50 transition-all duration-500"></i>`}
-                    </div>
-                    
-                    <!-- 🌟 網掛けの上に必ず来るように z-20 を設定したわ -->
-                    <div class="p-6 text-center relative z-20 border-t border-otome-primary/20">
-                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded bg-[#1a1a1a] border border-otome-primary/50 shadow-sm flex items-center justify-center text-[10px]" style="color: ${char.themeColor}">
-                            <i class="fas fa-wine-glass"></i>
-                        </div>
-                        <span class="text-xs font-bold text-otome-gold/80 mb-2 block tracking-widest">${char.type}</span>
-                        <h3 class="text-xl font-bold text-otome-text mb-1 font-serif">${char.name}</h3>
-                    </div>
-                `;
-                listContainer.appendChild(card);
-            });
-        });
-
-        // モーダルを開く処理
-        function openModal(char) {
-            const modal = document.getElementById('char-modal');
-            const content = document.getElementById('modal-content');
-            
-            document.getElementById('modal-name').textContent = char.name;
-            document.getElementById('modal-type').textContent = char.type;
-            document.getElementById('modal-catchphrase').textContent = char.catchphrase;
-            document.getElementById('modal-desc').textContent = char.desc;
-            document.getElementById('modal-height').textContent = char.height;
-            document.getElementById('modal-weight').textContent = char.weight;
-            document.getElementById('modal-blood').textContent = char.blood;
-            document.getElementById('modal-job').textContent = char.job;
-            
-            const portraitImg = document.getElementById('modal-portrait');
-            const iconPlaceholder = document.getElementById('modal-icon-placeholder');
-            
-            if (char.portrait) {
-                portraitImg.src = char.portrait;
-                portraitImg.classList.remove('hidden');
-                iconPlaceholder.classList.add('hidden');
-            } else {
-                portraitImg.classList.add('hidden');
-                iconPlaceholder.classList.remove('hidden');
-            }
-
-            const stillsContainer = document.getElementById('modal-stills');
-            stillsContainer.innerHTML = '';
-            if (char.stills && char.stills.length > 0) {
-                char.stills.forEach(stillUrl => {
-                    const img = document.createElement('img');
-                    img.src = stillUrl;
-                    img.alt = `${char.name} Event Still`;
-                    img.className = 'h-24 md:h-32 w-auto object-cover rounded-md cursor-pointer border border-white/20 hover:border-otome-gold hover:opacity-80 transition-all shadow-md flex-shrink-0';
-                    img.onclick = () => openLightbox(stillUrl);
-                    stillsContainer.appendChild(img);
-                });
-            } else {
-                stillsContainer.innerHTML = '<p class="text-xs text-white/30">スチル画像はまだありません</p>';
-            }
-            
-            const imgArea = document.getElementById('modal-img-area');
-            imgArea.className = `w-full md:w-2/5 h-64 md:h-auto flex items-center justify-center relative overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none ${char.color}`;
-
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
-            setTimeout(() => {
-                content.classList.add('modal-enter-active');
-            }, 10);
-            
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('char-modal');
-            const content = document.getElementById('modal-content');
-            
-            content.classList.remove('modal-enter-active');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
-            }, 400);
-        }
-
         function openLightbox(imgUrl) {
             const lightbox = document.getElementById('lightbox-modal');
             const lightboxImg = document.getElementById('lightbox-img');
